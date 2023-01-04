@@ -1,16 +1,13 @@
 <?php
 namespace Cors\Error;
 
-use Cake\Core\Configure;
+
 use Cake\Controller\Controller;
 use Cors\Routing\Middleware\CorsMiddleware;
+use Cake\Error\Renderer\WebExceptionRenderer;
 
-function get_dynamic_parent() {
-    return Configure::read('Error.baseExceptionRenderer');// return what you need
-}
-class_alias(get_dynamic_parent(), 'Cors\Error\BaseExceptionRenderer');
 
-class AppExceptionRenderer extends BaseExceptionRenderer
+class AppExceptionRenderer extends WebExceptionRenderer
 {
     /**
      * Returns the current controller.
